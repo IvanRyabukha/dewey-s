@@ -22,11 +22,15 @@ export function Header() {
 
       <div>
         <div
-          className="text-center mx-auto border border-solid border-neutral-300
+          className="text-center mx-auto border-y border-solid border-neutral-300
             py-3 w-max px-10"
         >
           <h1 className="text-4xl tracking-widest mb-2">HOLLYWOOD FACTORY</h1>
-          <time className="opacity-60">{formattedDate(new Date())}</time>
+          <div className='flex items-center justify-center gap-3'>
+            <span className='flex border-y border-solid border-neutral-300 h-2 w-20' />
+            <time className="opacity-60 font-oswald">{formattedDate(new Date())}</time>
+            <span className='flex border-y border-solid border-neutral-300 h-2 w-20' />
+          </div>
         </div>
       </div>
 
@@ -39,10 +43,10 @@ export function Header() {
             <div className="font-oswald text-xl font-light mb-1">
               Telephone is here
             </div>
-            <div className="flex items-center gap-3">
-              <b className="text-xl">$18.90</b>
+            <div className="flex items-center gap-2">
+              <b className="font-oswald text-xl">$18.90</b>
               <span> | </span>
-              <span className="text-[0.6rem] leading-snug opacity-70">
+              <span className="font-oswald text-[0.7rem] leading-snug opacity-70">
                 Los Angeles <br />
                 Montreal
               </span>

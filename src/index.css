@@ -21,7 +21,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  @apply bg-white text-neutral-800 py-8 px-20;
+  @apply bg-white px-20 py-8 text-neutral-800;
 }
 
 h1 {
