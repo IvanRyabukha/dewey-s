@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header className="grid grid-cols-[1fr_3fr_1fr] items-center">
       <div className="flex gap-4 items-center">
-        <img src="/logo.png" alt="Vintage Saloon" width={90} height={90} />
+        <img src="image/logo.png" alt="Vintage Saloon" width={90} height={90} />
 
         <div className="w-max">
           <b className="text-xl font-semibold font-oswald">
@@ -53,7 +53,7 @@ export function Header() {
             </div>
           </div>
           <img
-            src="/vintage-phone-sm.png"
+            src="image/vintage-phone-sm.png"
             alt="Vintage Phone"
             width={90}
             height={90}

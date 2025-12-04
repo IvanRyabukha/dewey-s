@@ -5,7 +5,7 @@ interface Props {
 
 export function MovieItem({ title, rataing }: Props) {
   return (
-    <div className="flex items-center gap-2 py-2">
+    <div className="flex items-center gap-2 py-1">
       <span className="ml-2 w-px h-8 bg-neutral-950"/>
       <span className="font-semibold font-oswald">{title}</span>
       <div
