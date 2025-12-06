@@ -14,8 +14,8 @@ export function GeneralNews() {
             <img
               src={newsItem.imageUrl}
               alt={newsItem.title}
-              className={`w-36 mr-4 rounded object-cover
-              ${newsItem.alignment === 'right' ? 'float-right ml-4 mr-0' : 'float-left'}`}
+              className={`w-36 rounded object-cover
+              ${newsItem.alignment === 'right' ? 'float-right ml-4 mr-0' : 'float-left mr-4 mb-3'}`}
             />
 
             <div>
