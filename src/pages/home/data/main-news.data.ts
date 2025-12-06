@@ -1,4 +1,5 @@
-export interface IMainNewsData {
+export interface IMainNews {
+  id: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -10,12 +11,13 @@ export interface IMainNewsData {
   }
 }
 
-export const mainNewsData: IMainNewsData[] = [
+export const mainNewsData: IMainNews[] = [
   {
+    id: "1",
     title: 'Hollywood Star Dies at 90',
     description:
       'Renowned actor John Doe passed away peacefully at his home surrounded by family. He was known for his roles in classic films such as "Sunset Boulevard" and "The Great Escape".',
-    imageUrl: '/image/home/main1.webp',
+    imageUrl: '/image/home/main1.jpg',
     date: 'June 15, 2024',
     author: {
       name: 'Smith Johnson',
@@ -24,6 +26,7 @@ export const mainNewsData: IMainNewsData[] = [
     },
   },
   {
+    id: "2",
     title: 'New Blockbuster Breaks Box Office Records',
     description:
       'The latest sci-fi thriller "Galactic Odyssey" has shattered box office records, grossing over $500 million in its opening weekend. Critics praise its stunning visuals and gripping storyline.',
@@ -36,10 +39,11 @@ export const mainNewsData: IMainNewsData[] = [
     },
   },
   {
+    id: "3",
     title: 'Award Season Highlights',
     description:
       'The annual film awards celebrated the best in cinema, with "Eternal Horizons" taking home the top prize for Best Picture. The event was filled with memorable speeches and glamorous fashion.',
-    imageUrl: '/image/home/main3.webp',
+    imageUrl: '/image/home/main3.jpg',
     date: 'June 5, 2024',
     author: {
       name: 'Emily Davis',
