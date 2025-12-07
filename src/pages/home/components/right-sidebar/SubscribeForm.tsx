@@ -13,7 +13,7 @@ export function SubscribeForm() {
   };
 
   return (
-    <section className="mt-6 border-t border-neutral-300 pt-4">
+    <section>
       <h3 className="font-bold text-lg mb-1">Subscribe to all the news</h3>
       <p className="text-sm text-neutral-600 mb-3">
         Never miss the latest updates.

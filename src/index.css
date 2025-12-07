@@ -38,24 +38,28 @@ button {
   clear: both;
 }
 
+.fade-enter-active,
+.fade-exit-active,
+.fade-exit-active .animate-img,
+.fade-exit-active .animate-content,
 .fade-enter-active .animate-img,
-.fade-leave-active .animate-img,
-.fade-enter-active .animate-content,
-.fade-leave-active .animate-content {
+.fade-enter-active .animate-content {
   transition: all 0.5s ease;
 }
 
 .fade-enter .animate-img {
   opacity: 0;
 }
+
+.fade-exit-active .animate-img {
+  opacity: 0.3;
+  filter: blur(12px) contrast(120%) saturate(130%);
+}
+
 .fade-enter .animate-content {
   opacity: 0;
 }
 
-.fade-leave-to .animate-img {
-  opacity: 0.3;
-  filter: blur(12px) contrast(120%) saturate(130%);
-}
-.fade-leave-to .animate-content {
+.fade-exit-active .animate-content {
   opacity: 0.3;
 }

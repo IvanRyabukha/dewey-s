@@ -4,7 +4,7 @@ import { RightSideBar } from './components/right-sidebar/RightSideBar';
 
 export function Home() {
   return (
-    <div className="grid grid-cols-[1.1fr_3fr_1fr] gap-6 mt-2">
+    <div className="grid grid-cols-[1.1fr_3fr_1fr] gap-6 mt-2 pb-4">
       <GeneralNews />
       <Carusel />
       <RightSideBar />

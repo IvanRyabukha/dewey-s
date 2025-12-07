@@ -1,18 +1,24 @@
 import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import { mainNewsData } from '../../data/main-news.data';
 import { useMemo, useRef, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 export function Carusel() {
   const [index, setIndex] = useState(0);
-  const imgRef = useRef(null);
+  const [show, setShow] = useState(true);
+  const [direction, setDirection] = useState('');
+
   const contentRef = useRef(null);
 
-  const nextNews = () =>
-    setIndex((prev) => (prev + 1 + mainNewsData.length) % mainNewsData.length);
+  const nextNews = () => {
+    setDirection('next');
+    setShow(false);
+  };
 
-  const prevNews = () =>
-    setIndex((prev) => (prev + -1 + mainNewsData.length) % mainNewsData.length);
+  const prevNews = () => {
+    setDirection('prev');
+    setShow(false);
+  };
 
   const newsItem = useMemo(() => mainNewsData[index], [index]);
 
@@ -21,34 +27,31 @@ export function Carusel() {
       className="relative w-full overflow-hidden border border-neutral-300 p-3
         flex flex-col"
     >
-      
-      <div className="relative w-full h-86 overflow-hidden">
-        <TransitionGroup component={null}>
-          <CSSTransition
-            key={newsItem.imageUrl}
-            timeout={500}
-            classNames="fade"
-            nodeRef={imgRef}
-          >
-            <img
-              src={newsItem.imageUrl}
-              alt={newsItem.title}
-              className="animate-img w-full h-86 absolute inset-0 object-cover"
-            />
-          </CSSTransition>
-        </TransitionGroup>
-      </div>
+      <CSSTransition
+        nodeRef={contentRef}
+        in={show}
+        timeout={250}
+        classNames={'fade'}
+        unmountOnExit
+        onExited={() => {
+          setIndex((prev) =>
+            direction === 'next'
+              ? (prev + 1) % mainNewsData.length
+              : (prev - 1 + mainNewsData.length) % mainNewsData.length
+          );
+          setShow(true);
+        }}
+      >
+        <div ref={contentRef} className="relative flex flex-col flex-1">
+          <img
+            src={newsItem.imageUrl}
+            alt={newsItem.title}
+            className="w-full h-86 object-cover animate-img"
+          />
 
-      <TransitionGroup component={null}>
-        <CSSTransition
-          key={index}
-          timeout={500}
-          classNames="fade"
-          nodeRef={contentRef}
-        >
           <div
-            className="animate-content pt-5 flex flex-col flex-1
-              justify-between"
+            className="pt-5 flex flex-col flex-1 justify-between
+              animate-content"
           >
             <div>
               <p
@@ -70,8 +73,7 @@ export function Carusel() {
                 <img
                   src={newsItem.author.profileUrl}
                   alt={newsItem.author.name}
-                  width="90"
-                  height="90"
+                  className="w-25 h-25 object-cover"
                 />
                 <div className="flex flex-col">
                   <p className="font-medium font-oswald text-lg">
@@ -99,8 +101,8 @@ export function Carusel() {
               </div>
             </div>
           </div>
-        </CSSTransition>
-      </TransitionGroup>
+        </div>
+      </CSSTransition>
     </section>
   );
 }

@@ -1,24 +1,24 @@
 import { useGetFilmsQuery } from '../../app/api/filmsApi';
 import { MovieItem } from './movie-item/MovieItem';
 import Marquee from 'react-fast-marquee';
-import { mockFilmsData } from '../../app/api/films.data'
+import { Skeleton } from '@mui/material';
 
 export function MoviesRating() {
-  // const { data, error, isLoading } = useGetFilmsQuery();
+  const { data, error, isLoading } = useGetFilmsQuery();
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (isLoading) {
+    return <Skeleton variant="rectangular" width={'100%'} height={50} className='mt-4 py-1'/>
+  }
 
-  // if (error) {
-  //   return <div>Error loading films</div>;
-  // }
+  if (error) {
+    return <div>Error loading films</div>;
+  }
 
-  // if (!data || !data.titles || data.titles.length === 0) {
-  //   return <div>No films available</div>;
-  // }
+  if (!data || !data.titles || data.titles.length === 0) {
+    return <div>No films available</div>;
+  }
 
-  const movies = mockFilmsData.titles; //data.titles || [];
+  const movies = data.titles || [];
 
   return (
     <div className="border-y border-neutral-700 py-1 mt-4">

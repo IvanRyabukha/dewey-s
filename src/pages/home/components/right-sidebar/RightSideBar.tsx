@@ -4,7 +4,7 @@ import { SubscribeForm } from './SubscribeForm';
 
 export function RightSideBar() {
   return (
-    <div>
+    <div className='flex flex-col justify-between'>
       <BookNow />
       <LatestNews />
       <SubscribeForm />
